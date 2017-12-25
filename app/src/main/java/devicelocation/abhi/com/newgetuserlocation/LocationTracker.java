@@ -58,7 +58,7 @@ public class LocationTracker implements LocationListener {
         }
     }
 
-    void removeRequest() {
+    public void removeRequest() {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             if (locationManager != null)
                 locationManager.removeUpdates(this);
