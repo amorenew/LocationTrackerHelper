@@ -46,6 +46,8 @@ public class LocationTracker implements LocationListener {
     }
 
     public static String getCityName() {
+        if (cityName.isEmpty())
+            return null;
         return cityName;
     }
 

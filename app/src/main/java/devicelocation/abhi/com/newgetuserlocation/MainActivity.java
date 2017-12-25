@@ -32,6 +32,17 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, cityName, Toast.LENGTH_LONG).show();
             }
         });
+//        int off ;
+////        try {
+////            off = Settings.Secure.getInt(getContentResolver(), Settings.Secure.LOCATION_MODE);
+////            if(off==0){
+//                Intent onGPS = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+//                startActivity(onGPS);
+////            }
+////        } catch (Settings.SettingNotFoundException e) {
+////            e.printStackTrace();
+////        }
+
     }
 
     @Override
@@ -64,7 +75,10 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Log.d("action_settings", "poo");
-            locationTracker.requestLocation();
+            if (LocationTracker.getCityName() == null)
+                locationTracker.requestLocation();
+            else
+                Toast.makeText(MainActivity.this, LocationTracker.getCityName(), Toast.LENGTH_LONG).show();
             return true;
         }
 
